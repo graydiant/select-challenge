@@ -33,11 +33,12 @@ const rangeOptions: Record<string, {
   },
 }
 
-const getInitialState = ({ startDate, endDate, dateRange }: {
+type InitialParams = {
   startDate?: string;
   endDate?: string;
   dateRange?: string;
-}) => {
+}
+const getInitialState = ({ startDate, endDate, dateRange }: InitialParams) => {
   if (startDate && endDate) {
     return {
       startDate: dayjs(startDate).toDate(),
@@ -58,11 +59,7 @@ const getInitialState = ({ startDate, endDate, dateRange }: {
   }
 }
 
-const getInitialRange = ({ startDate, endDate, dateRange }: {
-  startDate?: string;
-  endDate?: string;
-  dateRange?: string;
-}) => {
+const getInitialRange = ({ startDate, endDate, dateRange }: InitialParams) => {
   if (startDate && endDate) {
     return 'custom'
   }
